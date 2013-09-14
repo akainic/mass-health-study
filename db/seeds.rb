@@ -9,16 +9,16 @@
 require 'CSV'
 
 
-filename = '/Users/annekainic/Dropbox/work/mass_health/mass_health_data_2/db/data/mass_chip_data.csv'
+filename = '/Users/annekainic/Dropbox/work/mass_health/mass_health_data_2/db/data/mass_chip_data_edited.csv'
 
-CSV.foreach(filename, {:headers => true}) do |attributes|
+CSV.foreach(filename) do |attributes|
 
   data = {
     geography: attributes[0],
-    population_2005: attributes[1],
-    population_youth_2005: attributes[2],
-    population_senior_2005: attributes[3],
-    per_capita_income_2000: attributes[4],
+    population_2005: (attributes[1]).to_i,
+    population_youth_2005: attributes[2].to_i,
+    population_senior_2005: attributes[3].to_i,
+    per_capita_income_2000: attributes[4].to_i,
     infant_deaths_2005_2008: attributes[9],
     teen_births_2005_2008: attributes[14]
   }
